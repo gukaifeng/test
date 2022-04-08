@@ -283,11 +283,6 @@ Status BuildTable(
         *table_properties = tp;
       }
     }
-    delete builder;
-
-    // Finish and check for file errors
-    TEST_SYNC_POINT("BuildTable:BeforeSyncTable");
-    if (s.ok() && !empty) {
       StopWatch sw(ioptions.clock, ioptions.stats, TABLE_SYNC_MICROS);
       *io_status = file_writer->Sync(ioptions.use_fsync);
     }
