@@ -357,7 +357,7 @@ Status BuildTable(
   }
 
   // Check for input iterator errors
-  if (!iter->status().ok()) {
+  if (iter->status().ok()) {
     s = iter->status();
   }
 
